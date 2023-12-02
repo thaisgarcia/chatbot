@@ -1,7 +1,10 @@
+from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 
-chatbot = ChatBot("BotR2-D2")
+app = Flask(__name__)
+
+chatbot = ChatBot("Chatbot")
 
 conversa = [
     'Oi',
@@ -16,18 +19,27 @@ conversa = [
     'Eu sou um assistente virtual',
     'Obrigada',
     'Por nada!',
-    'Thank you',
-    'Por nada!',
-    'Sério?',
-    'Sim'
 ]
 
 trainer = ListTrainer(chatbot)
 trainer.train(conversa)
 
-while True:
-    mensagem = input("Envie uma mensagem para o chatbot: ")
-    if mensagem.lower() == "parar":
-        break
-    resposta = chatbot.get_response(mensagem)
-    print(resposta)
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/get_response", methods=["POST"])
+def get_response():
+    try:
+        user_message = request.form["user_message"]
+        app.logger.info(f"Received user message: {user_message}")
+        response = str(chatbot.get_response(user_message))
+        app.logger.info(f"Generated response: {response}")
+        return response
+    except Exception as e:
+        app.logger.error(f"Error processing request: {e}")
+        return "Error"
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

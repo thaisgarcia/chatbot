@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+   height: 100%;
+   margin: 0;
+   font-family: Arial;
+}
+
+#chatbox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 60px;
+}
+
+#userInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    margin-top: 10px;
+}
+
+#textInput {
+    width: 80%;
+    border: none;
+    border-bottom: 3px solid black;
+    font-family: monospace;
+    font-size: 17px;
+}
+
+#sendButton {
+     width: 25%;
+     font-size: 17px;
+     margin-left: 5px;
+}
+
+.userText {
+    color: white;
+    font-family: monospace;
+    font-size: 17px;
+    text-align: right;
+    line-height: 30px;
+}
+
+.userText span {
+    background-color: #808080;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+.botText {
+    color: white;
+    font-family: monospace;
+    font-size: 17px;
+    text-align: left;
+    line-height: 30px;
+}
+
+.botText span {
+    background-color: #4169e1;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+#tidbit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+}
+
+.boxed {
+     margin-left: auto;
+     margin-right: auto;
+     width: 78%;
+     margin-top: 20px;
+     border: 1px solid blue;
+}
