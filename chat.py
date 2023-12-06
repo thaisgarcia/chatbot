@@ -41,7 +41,7 @@ def home():
     return render_template("index.html")
 
 # Funções CRUD
-def agendar(nome_cliente, data, hora):
+def agendar(nome_cliente, data_formatada, hora_formatada):
     try:
         # Converter data e hora
         data_formatada = datetime.strptime(data, "%Y-%m-%d").date()
