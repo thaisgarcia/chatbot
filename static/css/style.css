@@ -11,8 +11,8 @@ body, html {
 #chatbox {
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
-    margin-top: 60px;
+    width: 60%;
+    margin-top: 50px;
 }
 
 #userInput {
@@ -64,7 +64,19 @@ body, html {
 .botText span {
     background-color: #4169e1;
     padding: 10px;
+    width: 40%;
     border-radius: 2px;
+}
+
+.botText img{
+    width: 10%;
+}
+
+.botText img .robotIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
 #tidbit {
