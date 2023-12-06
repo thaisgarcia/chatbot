@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
 from flask_mysqldb import MySQL
@@ -65,10 +65,10 @@ def cancelar(agendamento_id):
     except Exception as e:
         return f"Erro ao cancelar: {str(e)}"
 
-def consultar(nome_cliente):
+def consultar():
     try:
         cur = mysql.get_db().cursor()
-        cur.execute("SELECT * FROM agendamentos WHERE nome_cliente = %s", [nome_cliente])
+        cur.execute("SELECT * FROM agendamentos")
         result = cur.fetchall()
         return jsonify(result)
     except Exception as e:
